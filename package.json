@@ -1,0 +1,7 @@
+{ "name" : "node-remote"
+, "author" : "Andrew Swerlick <andrew.swerlick@gmail.com>"
+, "version" : "0.0.1"
+, "dependencies" : {
+	"socket.io" : "0.x.x"
+	}
+}
