@@ -2,17 +2,6 @@ var x11 = require('x11/lib/x11'),
 	spawn = require('child_process').spawn;
 	log = require('sys').puts;
 	keyMapper = require('./keyMapper.js');
-function buildASCIIToXKeyMap(XKeysMap,min){
-	asciiToX = {};
-	for(i=0; i<XKeysMap.length; i++){
-		for(j=0; j< XKeysMap[i].length; j++){
-   			key=XKeysMap[i][j];
-			value = i + min-1;
-			if(key!=0)	asciiToX[key] = value;
-		}
-	}                                         
-	return asciiToX;
-}
 
 
 function XManager(XDisplayClient){
@@ -27,15 +16,10 @@ function XManager(XDisplayClient){
 			self.keyMapper = mapper;	
 		});
 	});
-	//Using winfo to get our screen resolutions height and width
-	//This is a dirty hack
-	wininfo = spawn('xwininfo', ['-root']);	
-	wininfo.stdout.on('data', function(data){
-		w = (data + "").match(/Width: ([0-9]+)\n/)[0].replace("Width: ", "");
-	   	h = (data + "").match(/Height: ([0-9]+)\n/)[0].replace("Height: ", "");	
-		self.width = parseFloat(w);
-		log(self.width);
-		self.height = parseFloat(h);
+	
+	X.GetGeometry(self.root, function(result){
+		self.width = result.width;
+		self.height = result.height;
 	});
 }
 
