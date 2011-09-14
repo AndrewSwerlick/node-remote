@@ -16,7 +16,11 @@ var exceptionKeys = {
 '186' : '59', //SEMICOLON CHROME
 '222' : '34', //QUOTES CHROME
 '188' : '44', //COMMA CHROME
-'27' : '65307' //ESC CHROME	
+'27' : '65307', //ESC CHROME	
+'39' : '65363', //RIGHT ARROW CHROME	
+'37' : '65361', //LEFT ARROW CHROME
+'38' : '65362', //UP ARROW CHROME
+'40' : '65364' //DOWN ARROW CHROME
 };
 
 function buildASCIIToXKeyMap(XKeysMap,min){
@@ -24,7 +28,7 @@ function buildASCIIToXKeyMap(XKeysMap,min){
 	for(i=0; i<XKeysMap.length; i++){
 		for(j=0; j< XKeysMap[i].length; j++){
    			key=XKeysMap[i][j];
-			value = i + min-1;
+			value = i + min;
 			if(key!=0)	asciiToX[key] = value;
 		}
 	}                                         
