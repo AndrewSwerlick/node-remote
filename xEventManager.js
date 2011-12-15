@@ -29,6 +29,14 @@ XManager.prototype.move= function(xPercent, yPercent){
 	this.X.WarpPointer(0,this.root,0,0,0,0,x,y);	
 }
 
+XManager.prototype.moveRelative= function(x, y){
+	this.X.QueryPointer(this.root, function(res){
+		newX = res.x + x;
+		newY = res.y + y;
+		this.X.WarpPointer(0,this.root,0,0,0,0,x,y);
+	});
+}
+
 XManager.prototype.keyUp = function (keyCode){
 	X.require('xtest', function(test) {
 			test.FakeInput(test.KeyRelease, self.keyMapper.mapKey(keyCode), 0, root, 0, 0);

@@ -9,11 +9,6 @@ $(document).mousemove(
 	}
 );
 
-//$(document).keypress(function(e){
-//	socket.emit('keyPress', {key: e.which});
-//	e.preventDefault();
-//	return false;
-//});
 
 $(document).keydown(
 	function(e){
@@ -41,4 +36,18 @@ $(document).click(
 		});
 		return false;
 	}
-	);
+);
+
+//Adding touch events after the page is loaded
+$(document).ready(function(){
+	$.jQTouch({
+		initializeTouch: 'body'
+	});
+	$('.current').bind('drag' ,function(e, info){
+		socket.emit('moveRelative', {		
+				x: info.deltaX/10,
+	         	y: info.deltaY/10,
+		});
+	});
+});
+

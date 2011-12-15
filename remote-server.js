@@ -12,6 +12,9 @@ xManager.createXManager(function(manager) {
 		socket.on('move', function(data) {
 			manager.move(data.xPercent, data.yPercent);
 		});	
+		socket.on('moveRelative', function(data) {
+			manager.moveRelative(data.x, data.y);
+		});
 		socket.on('keyUp', function(data){
 			manager.keyUp(data.key);
 		});
