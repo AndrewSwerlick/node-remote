@@ -2,7 +2,7 @@ var url = require('url'),
 	http = require('http'),
 	path = require('path'),
 	fs = require('fs');
-	log = require('sys').puts;
+	log = require('util').puts;
 
 module.exports.createServer = function()
 {

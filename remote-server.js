@@ -10,22 +10,28 @@ server.listen(8000);
 xManager.createXManager(function(manager) {
 	sockets.on('connection', function(socket) {
 		socket.on('move', function(data) {
-			manager.move(data.xPercent, data.yPercent);
+        try{manager.move(data.xPercent, data.yPercent);}
+        catch(err){}
 		});	
 		socket.on('moveRelative', function(data) {
-			manager.moveRelative(data.x, data.y);
+        try{manager.moveRelative(data.x, data.y);}
+        catch(err){}
 		});
 		socket.on('keyUp', function(data){
-			manager.keyUp(data.key);
+        try{manager.keyUp(data.key);}
+        catch(err){}
 		});
 		socket.on('keyDown', function(data){
-			manager.keyDown(data.key);
+        try{manager.keyDown(data.key);}
+        catch(err){}
 		});
 		socket.on('keyPress', function(data){
-			manager.keyPress(data.key);
+        try{manager.keyPress(data.key);}
+        catch(err){}
 		});
 		socket.on('click', function(data){
-			manager.click(data.clickCode);
+        try{manager.click(data.clickCode);}
+        catch(err){}
 		});
 	});
 
