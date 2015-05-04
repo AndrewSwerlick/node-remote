@@ -1,4 +1,4 @@
-var socket = io.connect("http://10.17.63.101:8000");
+var socket = io();
 
 $(document).mousemove(
 	function(e){

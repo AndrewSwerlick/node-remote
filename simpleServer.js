@@ -2,7 +2,6 @@ var url = require('url'),
 	http = require('http'),
 	path = require('path'),
 	fs = require('fs');
-	log = require('util').puts;
 
 module.exports.createServer = function()
 {
@@ -13,8 +12,9 @@ module.exports.createServer = function()
 		}
 		
 		var filename = path.join(process.cwd(), uri);
-		log(filename);
-		path.exists(filename, function(exists) {
+		console.log(filename);
+
+		fs.exists(filename, function(exists) {
 			if(!exists) {
 				response.writeHead(404, {"Content-Type": "text/plain"});
 	    		response.write("404 Not Found\n");
