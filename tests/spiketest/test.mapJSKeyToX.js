@@ -1,10 +1,12 @@
-var x11 = require('x11/lib/x11');
+var x11 = require('x11/lib');
 
-x11.createClient(function(display) {
+x11.createClient(function(err, display) {
+	if(err) throw err;
     var X = display.client;
     var min = display.min_keycode;
     var max = display.max_keycode;
-    X.GetKeyboardMapping(min, max-min, function(list) {
+    X.GetKeyboardMapping(min, max-min, function(err, list) {
+    	if(err) throw err;
 		asciiToX = {};
 		for(i=0; i<list.length; i++){
 			for(j=0; j< list[i].length; j++){
@@ -14,6 +16,6 @@ x11.createClient(function(display) {
 			}
 		}
 
-		console.log(asciiToX);	
+		console.log(asciiToX);
 	});
 });

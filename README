@@ -1,4 +1,4 @@
-node-remote is a simple web server/webpage pair that allows you to remotely control the disply on the server by browsing to a webpage on any client machine. The page picks up mouse movements and keyboard presses and transmits them to the server via socket.io. Read more at
+node-remote is a simple web server/webpage pair that allows you to remotely control the display on the server by browsing to a webpage on any client machine. The page picks up mouse movements and keyboard presses and transmits them to the server via socket.io.
 
 RUNNING THE SERVER
 Start the server with the command node remote-server.js. Note you have to run this command from within the display that you want to be controlling, not a remote session.
